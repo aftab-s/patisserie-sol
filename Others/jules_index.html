@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patisserie SOL – Art of Choux & Mochi</title>
+    
+    <!-- Google Fonts -->
+    <!-- TODO: Replace with real brand fonts if different -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config for Custom Brand Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // TODO: Replace with real brand colors
+                        brand: {
+                            bg: '#FAF9F6', // off-white / cream
+                            heading: '#333333', // dark warm gray
+                            body: '#555555', // neutral gray
+                            accent: '#8CAF97', // muted pastel green / sage
+                            accentHover: '#7A9D85',
+                            gold: '#D4AF37', // soft gold
+                            goldHover: '#C29F30',
+                            card: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['"Cormorant Garamond"', 'serif'],
+                        body: ['"Inter"', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Styles & Overrides */
+        body {
+            background-color: #FAF9F6; /* brand.bg */
+            color: #555555; /* brand.body */
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-heading {
+            font-family: 'Cormorant Garamond', serif;
+            color: #333333; /* brand.heading */
+        }
+
+        /* Scroll Reveal Utility Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Subtle Hover Image Zoom for Cards */
+        .card-img-wrapper {
+            overflow: hidden;
+        }
+
+        .card-img-wrapper img {
+            transition: transform 0.5s ease;
+        }
+
+        .group:hover .card-img-wrapper img {
+            transform: scale(1.05);
+        }
+
+        /* Hero Overlay Gradient */
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(250, 249, 246, 0.3), rgba(250, 249, 246, 1));
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-brand-bg/90 backdrop-blur-md transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-heading text-2xl font-bold tracking-wider text-brand-heading">
+                        <!-- TODO: Replace with real logo image if available -->
+                        PATISSERIE SOL
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-brand-body hover:text-brand-accent transition-colors duration-200">Our Story</a>
+                    <a href="#menu" class="text-brand-body hover:text-brand-accent transition-colors duration-200">Menu</a>
+                    <a href="#featured" class="text-brand-body hover:text-brand-accent transition-colors duration-200">Featured</a>
+                    <a href="#reels" class="text-brand-body hover:text-brand-accent transition-colors duration-200">As Seen On</a>
+                    <a href="#contact" class="px-5 py-2 rounded-full border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white transition-all duration-300">Order Now</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-brand-heading focus:outline-none" aria-label="Toggle Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-bg shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2 text-center">
+                <a href="#about" class="block px-3 py-2 text-brand-body hover:text-brand-accent mobile-link">Our Story</a>
+                <a href="#menu" class="block px-3 py-2 text-brand-body hover:text-brand-accent mobile-link">Menu</a>
+                <a href="#featured" class="block px-3 py-2 text-brand-body hover:text-brand-accent mobile-link">Featured</a>
+                <a href="#reels" class="block px-3 py-2 text-brand-body hover:text-brand-accent mobile-link">As Seen On</a>
+                <a href="#contact" class="block px-3 py-2 mt-4 mx-auto w-[200px] rounded-full border border-brand-accent text-brand-accent bg-transparent mobile-link">Order Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1) Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <!-- TODO: Replace with real hero image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Beautiful patisserie display with choux and cakes" 
+                 class="w-full h-full object-cover object-center" />
+        </div>
+        
+        <!-- Overlay -->
+        <div class="absolute inset-0 hero-overlay z-10"></div>
+
+        <!-- Content -->
+        <div class="relative z-20 text-center px-4 max-w-4xl mx-auto opacity-0 animate-fade-in-up">
+            <h1 class="font-heading text-5xl md:text-7xl font-semibold mb-6 leading-tight">
+                Patisserie SOL <br/>
+                <span class="text-3xl md:text-5xl italic font-normal text-brand-accent">Art of Choux & Mochi in Kochi</span>
+            </h1>
+            <p class="text-lg md:text-xl text-brand-heading mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                A cloud kitchen crafting melt-in-mouth mochi, gooey brookies, and premium cakes. Delivery across Kochi.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" rel="noopener noreferrer" 
+                   class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-accent text-white font-medium hover:bg-brand-accentHover transition-colors duration-300 shadow-md">
+                    Order on Instagram
+                </a>
+                <a href="#menu" 
+                   class="w-full sm:w-auto px-8 py-4 rounded-full border border-brand-heading text-brand-heading hover:bg-brand-heading hover:text-white transition-colors duration-300">
+                    View Menu
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2) About / Story Section -->
+    <section id="about" class="py-24 px-4 bg-brand-bg relative">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 reveal">
+            <!-- Image Placeholder -->
+            <div class="w-full md:w-1/2">
+                <div class="relative rounded-2xl overflow-hidden aspect-[4/5] shadow-xl">
+                    <!-- TODO: Replace with real founder photo or kitchen image -->
+                    <img src="https://images.unsplash.com/photo-1622359405021-fec84e3146ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80" 
+                         alt="Chef preparing desserts" 
+                         class="w-full h-full object-cover" />
+                </div>
+            </div>
+            
+            <!-- Text Content -->
+            <div class="w-full md:w-1/2 space-y-6">
+                <div class="flex items-center gap-4 text-brand-accent mb-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+                    </svg>
+                    <span class="uppercase tracking-widest text-sm font-medium text-brand-accent">Our Story</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-heading mb-4">Crafting Sensory Experiences</h2>
+                <p class="text-lg leading-relaxed text-brand-body">
+                    Patisserie SOL by Chef San is a cloud kitchen in Kochi/Cherthala, dedicated to the art of choux pastry and Japanese-inspired mochi. We craft each dessert with care, focusing on texture, flavor, and a sensory experience that lingers.
+                </p>
+                <div class="pt-6 border-t border-gray-200 mt-6">
+                    <ul class="space-y-3 text-brand-body">
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                            Cloud kitchen • Pre-orders only
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                            Delivery in Kochi
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                            Pan-India for teacakes & cookies
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3) Menu Highlights Section -->
+    <section id="menu" class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-heading mb-4">Menu Highlights</h2>
+                <p class="text-brand-body max-w-2xl mx-auto">Discover our signature creations, hand-crafted daily using premium ingredients.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 reveal">
+                <!-- Item 1: Mochi -->
+                <div class="group bg-brand-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="card-img-wrapper aspect-[4/3] relative">
+                        <!-- TODO: Replace with real Mochi image -->
+                        <img src="https://images.unsplash.com/photo-1624371457850-2521f153096e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80" alt="Japanese Mochi" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="font-heading text-2xl mb-2">Signature Mochi</h3>
+                        <p class="text-sm mb-6 line-clamp-2">Soft, chewy, and perfectly sweet. A Japanese-inspired delight with an array of decadent fillings.</p>
+                        <a href="https://ig.me/m/patisserie.sol.kochi" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white transition-colors duration-300">DM to Order</a>
+                    </div>
+                </div>
+
+                <!-- Item 2: Brookies -->
+                <div class="group bg-brand-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="card-img-wrapper aspect-[4/3] relative">
+                        <!-- TODO: Replace with real Brookies image -->
+                        <img src="https://images.unsplash.com/photo-1598514982205-f36b96d1ea8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Gooey Brookies" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="font-heading text-2xl mb-2">Gooey Brookies</h3>
+                        <p class="text-sm mb-6 line-clamp-2">The ultimate fusion. A rich, fudgy brownie base topped with classic chocolate chip cookie dough.</p>
+                        <a href="https://ig.me/m/patisserie.sol.kochi" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white transition-colors duration-300">DM to Order</a>
+                    </div>
+                </div>
+
+                <!-- Item 3: Choux Pastries -->
+                <div class="group bg-brand-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="card-img-wrapper aspect-[4/3] relative">
+                        <!-- TODO: Replace with real Choux Pastry image -->
+                        <img src="https://images.unsplash.com/photo-1616231940061-002fce2f72bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Choux Pastry" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="font-heading text-2xl mb-2">Artisan Choux</h3>
+                        <p class="text-sm mb-6 line-clamp-2">Crisp choux buns filled with luscious, silky creams in a variety of classic and modern flavors.</p>
+                        <a href="https://ig.me/m/patisserie.sol.kochi" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white transition-colors duration-300">DM to Order</a>
+                    </div>
+                </div>
+
+                <!-- Item 4: Premium Cakes -->
+                <div class="group bg-brand-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="card-img-wrapper aspect-[4/3] relative">
+                        <!-- TODO: Replace with real Cake image -->
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=1389&q=80" alt="Premium Celebration Cakes" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="font-heading text-2xl mb-2">Premium Cakes</h3>
+                        <p class="text-sm mb-6 line-clamp-2">Elegant, bespoke cakes for your special moments. Crafted to taste as stunning as they look.</p>
+                        <a href="https://ig.me/m/patisserie.sol.kochi" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white transition-colors duration-300">DM to Order</a>
+                    </div>
+                </div>
+
+                <!-- Item 5: Teacakes -->
+                <div class="group bg-brand-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="card-img-wrapper aspect-[4/3] relative">
+                        <!-- TODO: Replace with real Teacake image -->
+                        <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Teacakes" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="font-heading text-2xl mb-2">Classic Teacakes</h3>
+                        <p class="text-sm mb-6 line-clamp-2">The perfect companion to your evening brew. Available for Pan-India delivery.</p>
+                        <a href="https://ig.me/m/patisserie.sol.kochi" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white transition-colors duration-300">DM to Order</a>
+                    </div>
+                </div>
+
+                <!-- Item 6: Cookies -->
+                <div class="group bg-brand-bg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <div class="card-img-wrapper aspect-[4/3] relative">
+                        <!-- TODO: Replace with real Cookies image -->
+                        <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1364&q=80" alt="Gourmet Cookies" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-8 text-center">
+                        <h3 class="font-heading text-2xl mb-2">Gourmet Cookies</h3>
+                        <p class="text-sm mb-6 line-clamp-2">Chunky, loaded, and baked to perfection. Available for Pan-India delivery.</p>
+                        <a href="https://ig.me/m/patisserie.sol.kochi" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-2 rounded-full border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white transition-colors duration-300">DM to Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4) New Launch / Featured Section -->
+    <section id="featured" class="py-24 px-4 bg-brand-bg">
+        <div class="max-w-5xl mx-auto reveal">
+            <div class="relative bg-white rounded-3xl overflow-hidden shadow-xl flex flex-col md:flex-row items-center">
+                
+                <!-- Badge -->
+                <div class="absolute top-6 left-6 z-10 bg-brand-gold text-white text-xs font-bold tracking-wider uppercase px-4 py-1.5 rounded-full shadow-md">
+                    Limited Edition
+                </div>
+
+                <!-- Image -->
+                <div class="w-full md:w-1/2 aspect-square md:aspect-auto md:h-[500px]">
+                    <!-- TODO: Replace with image of current new launch/featured item -->
+                    <img src="https://images.unsplash.com/photo-1514845595162-8b73138b006a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="New Launch Featured Item" class="w-full h-full object-cover" />
+                </div>
+
+                <!-- Content -->
+                <div class="w-full md:w-1/2 p-10 md:p-16 text-center md:text-left">
+                    <h2 class="text-sm font-bold text-brand-accent uppercase tracking-widest mb-3">Featured This Season</h2>
+                    <h3 class="text-4xl md:text-5xl font-heading mb-6">Salted Caramel Mochi</h3>
+                    <p class="text-brand-body mb-8 text-lg">
+                        Our beloved soft mochi exterior enveloping a decadent, silky salted caramel center. A harmonious balance of sweet, salty, and chewy. Exclusively available this season.
+                    </p>
+                    <a href="https://ig.me/m/patisserie.sol.kochi" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 rounded-full bg-brand-heading text-white hover:bg-brand-body transition-colors duration-300 shadow-lg">
+                        DM to Pre-order
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5) Social Presence / Reels Section -->
+    <section id="reels" class="py-24 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-heading mb-4">Loved by Food Vloggers</h2>
+                <p class="text-brand-body max-w-2xl mx-auto">See what local creators are sharing about their Patisserie SOL experience.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+                <!-- Reel Placeholder 1 -->
+                <div class="bg-brand-bg rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col items-center">
+                    <div class="w-full aspect-[9/16] bg-gray-200 rounded-xl overflow-hidden relative flex items-center justify-center mb-4 group">
+                        <!-- TODO: Replace this entire div with real Instagram Reel Embed code -->
+                        <img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                            <svg class="w-12 h-12 text-white opacity-80 group-hover:opacity-100 transition-opacity" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        </div>
+                        <p class="relative z-10 text-white font-medium drop-shadow-md text-sm bg-black/40 px-3 py-1 rounded">Instagram Reel – @vlogger1</p>
+                    </div>
+                    <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-brand-accent hover:text-brand-accentHover transition-colors flex items-center gap-2">
+                        Watch on Instagram
+                    </a>
+                </div>
+
+                <!-- Reel Placeholder 2 -->
+                <div class="bg-brand-bg rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col items-center">
+                    <div class="w-full aspect-[9/16] bg-gray-200 rounded-xl overflow-hidden relative flex items-center justify-center mb-4 group">
+                        <!-- TODO: Replace this entire div with real Instagram Reel Embed code -->
+                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                            <svg class="w-12 h-12 text-white opacity-80 group-hover:opacity-100 transition-opacity" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        </div>
+                        <p class="relative z-10 text-white font-medium drop-shadow-md text-sm bg-black/40 px-3 py-1 rounded">Instagram Reel – @kochieats</p>
+                    </div>
+                    <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-brand-accent hover:text-brand-accentHover transition-colors flex items-center gap-2">
+                        Watch on Instagram
+                    </a>
+                </div>
+
+                <!-- Reel Placeholder 3 -->
+                <div class="bg-brand-bg rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col items-center hidden sm:flex lg:flex">
+                    <div class="w-full aspect-[9/16] bg-gray-200 rounded-xl overflow-hidden relative flex items-center justify-center mb-4 group">
+                        <!-- TODO: Replace this entire div with real Instagram Reel Embed code -->
+                        <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-60">
+                        <div class="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
+                            <svg class="w-12 h-12 text-white opacity-80 group-hover:opacity-100 transition-opacity" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        </div>
+                        <p class="relative z-10 text-white font-medium drop-shadow-md text-sm bg-black/40 px-3 py-1 rounded">Instagram Reel – @foodiekochi</p>
+                    </div>
+                    <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-brand-accent hover:text-brand-accentHover transition-colors flex items-center gap-2">
+                        Watch on Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6) Contact / Order Info Section -->
+    <section id="contact" class="py-24 px-4 bg-brand-bg border-t border-gray-100">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 reveal">
+            <!-- Info Side -->
+            <div class="w-full lg:w-1/2">
+                <h2 class="text-4xl md:text-5xl font-heading mb-6">Order & Delivery</h2>
+                <p class="text-lg text-brand-body mb-8">
+                    We are a dedicated cloud kitchen. To ensure the highest quality and freshness, we operate on a pre-order basis only.
+                </p>
+                
+                <div class="space-y-6 mb-10">
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 text-brand-accent">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-brand-heading text-lg">Ordering</h4>
+                            <p class="text-brand-body">Orders are placed via Instagram DM only.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 text-brand-accent">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-brand-heading text-lg">Instagram</h4>
+                            <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" rel="noopener noreferrer" class="text-brand-accent hover:underline">@patisserie.sol.kochi</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 text-brand-accent">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-brand-heading text-lg">Call / WhatsApp</h4>
+                            <!-- TODO: Replace with real phone number -->
+                            <p class="text-brand-body">+91 XXXXXXXXXX</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="mt-1 text-brand-accent">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-brand-heading text-lg">Delivery Zones</h4>
+                            <p class="text-brand-body">Direct delivery across Kochi.<br/>Pan-India delivery available for teacakes & cookies.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://ig.me/m/patisserie.sol.kochi" target="_blank" rel="noopener noreferrer" class="px-8 py-3 text-center rounded-full bg-brand-heading text-white hover:bg-brand-body transition-colors duration-300">
+                        Message on Instagram
+                    </a>
+                    <!-- TODO: Replace placeholder URL with real WhatsApp link: https://wa.me/91XXXXXXXXXX -->
+                    <a href="#" class="px-8 py-3 text-center rounded-full border border-brand-heading text-brand-heading hover:bg-brand-heading hover:text-white transition-colors duration-300">
+                        WhatsApp Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Form Placeholder -->
+            <div class="w-full lg:w-1/2 bg-white p-8 md:p-10 rounded-3xl shadow-lg border border-gray-100">
+                <h3 class="text-2xl font-heading mb-6">Send an Inquiry</h3>
+                <form id="inquiryForm" class="space-y-5">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-accent focus:border-brand-accent outline-none transition-all" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-accent focus:border-brand-accent outline-none transition-all" placeholder="Your Phone Number">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message / Order Request</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-brand-accent focus:border-brand-accent outline-none transition-all resize-none" placeholder="What would you like to order?"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3 px-6 rounded-xl bg-brand-accent text-white font-medium hover:bg-brand-accentHover transition-colors duration-300 shadow-md">
+                        Send Message
+                    </button>
+                    <p id="formStatus" class="hidden text-sm text-center text-green-600 mt-3 font-medium">Message sent! We'll get back to you soon.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7) Footer -->
+    <footer class="bg-[#2A2A2A] text-[#E0E0E0] py-12 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h3 class="font-heading text-2xl text-white mb-2 tracking-wider">PATISSERIE SOL</h3>
+                <p class="text-sm text-gray-400">Cloud kitchen • Pre-orders only</p>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-brand-gold transition-colors" aria-label="Instagram">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <!-- WhatsApp -->
+                <!-- TODO: Replace placeholder URL -->
+                <a href="#" class="text-gray-400 hover:text-brand-gold transition-colors" aria-label="WhatsApp">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-[#444] text-center text-xs text-gray-500">
+            &copy; 2026 Patisserie SOL. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1) Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // 2) Navbar background change on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-md');
+                } else {
+                    navbar.classList.remove('shadow-md');
+                }
+            });
+
+            // 3) Scroll Reveal Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15, // Trigger when 15% of element is visible
+                rootMargin: "0px 0px -50px 0px" // Offset slightly
+            };
+
+            const revealObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Reveal only once
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // 4) Contact Form Submission (Console Log only, no backend)
+            const form = document.getElementById('inquiryForm');
+            const formStatus = document.getElementById('formStatus');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                console.log('Form Submitted (Mock):', data);
+                
+                // Show success message
+                formStatus.classList.remove('hidden');
+                form.reset();
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    formStatus.classList.add('hidden');
+                }, 5000);
+            });
+        });
+    </script>
+</body>
+</html>
