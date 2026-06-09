@@ -151,21 +151,22 @@
             </button>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-cream-50 shadow-2xl z-40 transform translate-x-full transition-transform duration-500 flex flex-col justify-between p-10 pointer-events-auto">
-            <div class="mt-24 space-y-10 flex flex-col text-xl uppercase tracking-[0.2em] font-serif font-light">
-                <a href="#about" class="mobile-link text-charcoal-900 hover:text-sage-500 transition-colors hover:pl-2 duration-300">Our Story</a>
-                <a href="#menu" class="mobile-link text-charcoal-900 hover:text-sage-500 transition-colors hover:pl-2 duration-300">Menu</a>
-                <a href="#curate" class="mobile-link text-charcoal-900 hover:text-sage-500 transition-colors hover:pl-2 duration-300">Box Builder</a>
-                <a href="#order" class="mobile-link text-charcoal-900 hover:text-sage-500 transition-colors hover:pl-2 duration-300">How to Order</a>
-            </div>
-            <div class="flex flex-col gap-4 border-t border-sage-200/50 pt-8">
-                <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="w-full bg-sage-500 text-cream-50 py-4 rounded text-center text-xs tracking-widest uppercase hover:bg-sage-600 transition-all shadow-md">
-                    <i class="fab fa-instagram mr-2 text-sm"></i>Instagram
-                </a>
+        <!-- Mobile Menu Pill Dropdown -->
+        <div id="mobile-menu" class="fixed top-[7.5rem] left-0 right-0 z-40 w-[92%] max-w-5xl mx-auto opacity-0 pointer-events-none transition-all duration-300 scale-95 origin-top">
+            <div class="rounded-3xl overflow-hidden shadow-lg border border-white/50 glass">
+                <div class="flex flex-col py-2">
+                    <a href="#about" class="mobile-link px-8 py-4 text-xs tracking-[0.2em] uppercase font-medium text-charcoal-800 hover:text-sage-600 hover:bg-sage-100/40 transition-all duration-200 border-b border-sage-200/30">Our Story</a>
+                    <a href="#menu" class="mobile-link px-8 py-4 text-xs tracking-[0.2em] uppercase font-medium text-charcoal-800 hover:text-sage-600 hover:bg-sage-100/40 transition-all duration-200 border-b border-sage-200/30">Menu</a>
+                    <a href="#curate" class="mobile-link px-8 py-4 text-xs tracking-[0.2em] uppercase font-medium text-charcoal-800 hover:text-sage-600 hover:bg-sage-100/40 transition-all duration-200 border-b border-sage-200/30">Build a Box</a>
+                    <div class="flex items-center justify-between px-8 py-4">
+                        <a href="#order" class="mobile-link text-xs tracking-[0.2em] uppercase font-medium text-charcoal-800 hover:text-sage-600 transition-colors duration-200">Pre-Order</a>
+                        <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="mobile-link bg-sage-500 text-cream-50 px-5 py-2 rounded hover:bg-sage-600 transition-all shadow-[0_4px_12px_rgb(140,175,151,0.3)] text-[10px] tracking-widest uppercase font-semibold">
+                            <i class="fab fa-instagram mr-1.5"></i>Instagram
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-        <div id="mobile-menu-backdrop" class="fixed inset-0 bg-charcoal-900/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-500 z-30"></div>
     </header>
     <!-- Hero Section -->
     <section id="hero" class="relative min-h-screen flex items-center pt-28 pb-10 md:pb-16 overflow-hidden">
@@ -174,9 +175,9 @@
         <div class="absolute -top-[20%] -right-[10%] w-[60vw] h-[60vw] rounded-full bg-sage-200/40 filter blur-[120px] animate-pulse-slow mix-blend-multiply"></div>
         <div class="absolute -bottom-[20%] -left-[10%] w-[50vw] h-[50vw] rounded-full bg-gold-400/20 filter blur-[120px] animate-pulse-slow mix-blend-multiply" style="animation-delay: 2s;"></div>
 
-        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        <div class="max-w-7xl mx-auto px-8 md:px-12 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
             
-            <div class="lg:col-span-5 flex flex-col items-start space-y-6 md:space-y-8 text-left animate-slide-up">
+            <div class="lg:col-span-5 flex flex-col items-start space-y-6 md:space-y-8 text-left animate-slide-up order-2 lg:order-1">
                 <div class="inline-flex items-center gap-3 bg-white/60 backdrop-blur-md border border-white px-4 py-2 rounded shadow-sm">
                     <span class="relative flex h-2.5 w-2.5">
                       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sage-400 opacity-75"></span>
@@ -205,7 +206,7 @@
             </div>
 
             <!-- Desktop: overlapping gallery layout -->
-            <div class="hidden lg:block lg:col-span-7 relative h-[650px] w-full animate-slide-up transform lg:translate-y-8" style="animation-delay: 0.2s;">
+            <div class="hidden lg:block lg:col-span-7 relative h-[500px] w-full animate-slide-up transform lg:translate-y-8" style="animation-delay: 0.2s;">
                 <!-- Main Portrait Image -->
                 <div class="absolute right-0 lg:right-4 w-[65%] h-[80%] rounded-md overflow-hidden shadow-2xl z-10 border-[6px] border-white/80 bg-cream-300 transform transition-transform duration-700 hover:scale-[1.02]">
                     <img src="images/hero_pastries.png" alt="Luxurious flat lay of choux and mochi" class="w-full h-full object-cover hover:scale-105 transition-transform duration-1000">
@@ -221,20 +222,20 @@
                 </div>
             </div>
 
-            <!-- Mobile: clean 2-column image strip -->
-            <div class="lg:hidden w-full animate-slide-up" style="animation-delay: 0.2s;">
-                <div class="grid grid-cols-2 gap-3">
-                    <div class="rounded-md overflow-hidden shadow-lg border-4 border-white bg-cream-300 aspect-square">
-                        <img src="images/hero_pastries.png" alt="Pastries" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col gap-3">
-                        <div class="rounded-md overflow-hidden shadow-lg border-4 border-white bg-white flex-1">
-                            <img src="images/choux_pastry.png" alt="Choux pastry" class="w-full h-full object-cover">
-                        </div>
-                        <div class="rounded-md overflow-hidden shadow-lg border-4 border-white bg-white flex-1">
-                            <img src="images/mochi_selection.png" alt="Mochi selection" class="w-full h-full object-cover">
-                        </div>
-                    </div>
+            <!-- Mobile: elegant overlapping gallery -->
+            <div class="lg:hidden w-full relative h-[260px] sm:h-[340px] animate-slide-up order-1 mb-2 sm:mb-4" style="animation-delay: 0.2s;">
+                <!-- Main Portrait Image -->
+                <div class="absolute right-0 top-0 w-[75%] h-[85%] rounded-2xl overflow-hidden shadow-2xl z-10 border-4 border-white/90 bg-cream-300 transform transition-transform duration-700 hover:scale-[1.02]">
+                    <img src="images/hero_pastries.png" alt="Luxurious flat lay of choux and mochi" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+                </div>
+                <!-- Bottom Left Overlapping Image -->
+                <div class="absolute left-0 bottom-0 w-[55%] h-[45%] rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-white bg-white transform transition-transform duration-700 hover:-translate-y-1 hover:scale-[1.02]">
+                    <img src="images/choux_pastry.png" alt="Choux pastry" class="w-full h-full object-cover">
+                </div>
+                <!-- Top Left Overlapping Image -->
+                <div class="absolute left-4 top-8 w-[40%] h-[35%] rounded-2xl overflow-hidden shadow-lg z-20 border-4 border-white bg-white transform transition-transform duration-700 hover:-translate-y-1 hover:scale-[1.02]">
+                    <img src="images/mochi_selection.png" alt="Mochi selection" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -242,7 +243,7 @@
 
     <!-- Featured Section -->
     <section id="featured" class="py-24 bg-cream-50 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-8 md:px-12 relative z-10">
             <div class="glass bg-white/60 backdrop-blur-md rounded-md border border-white/50 overflow-hidden shadow-xl flex flex-col lg:flex-row items-center">
                 <!-- Badge -->
                 <div class="absolute top-6 left-6 z-10 bg-gold-500 text-cream-50 text-[10px] font-bold tracking-wider uppercase px-4 py-1.5 rounded shadow-md">
@@ -276,7 +277,7 @@
 
     <!-- Story / About Section -->
     <section id="about" class="py-16 md:py-32 bg-cream-50 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="max-w-7xl mx-auto px-8 md:px-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-center">
                 <div class="lg:col-span-5 relative reveal-on-scroll">
                     <div class="relative rounded-md overflow-hidden shadow-2xl bg-cream-300 aspect-[4/5] transform -rotate-1 md:-rotate-2">
@@ -328,7 +329,7 @@
 
     <!-- Menu Section -->
     <section id="menu" class="py-16 md:py-32 bg-cream-100">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="max-w-7xl mx-auto px-8 md:px-12">
             <div class="flex flex-col items-center text-center space-y-4 mb-10 md:mb-20 reveal-on-scroll">
                 <span class="text-xs uppercase tracking-[0.2em] text-sage-600 font-bold">Menu</span>
                 <h2 class="font-serif text-4xl sm:text-5xl font-light text-charcoal-900">Artisanal Offerings</h2>
@@ -453,7 +454,7 @@
         <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-[url('images/gift_box.png')] bg-cover bg-center opacity-10 filter blur-[8px] pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 w-full h-[300px] bg-gradient-to-t from-charcoal-900 via-charcoal-900/80 to-transparent pointer-events-none z-10"></div>
 
-        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-20">
+        <div class="max-w-7xl mx-auto px-8 md:px-12 relative z-20">
             <div class="text-center space-y-4 mb-8 md:mb-16 reveal-on-scroll">
                 <span class="text-xs uppercase tracking-[0.2em] text-sage-400 font-bold inline-flex items-center gap-2"><i class="fa-solid fa-wand-magic-sparkles"></i> Interactive Experience</span>
                 <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-white">Curate Your Box</h2>
@@ -464,117 +465,121 @@
 
             <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-16">
                 
-                <!-- Left: Controls -->
-                <div class="xl:col-span-7 space-y-10 reveal-on-scroll">
-                    
-                    <!-- Step 1 -->
-                    <div class="glass bg-white/5 p-8 rounded-md border border-white/10">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="w-8 h-8 rounded bg-sage-500 flex items-center justify-center text-xs font-bold text-white shadow-lg">1</div>
-                            <h3 class="font-serif text-2xl text-white">Select Box Size</h3>
+                <!-- Step 1: Select Box Size -->
+                <div class="xl:col-span-7 order-1 xl:order-1 glass bg-white/5 p-8 rounded-md border border-white/10 reveal-on-scroll">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-8 h-8 rounded bg-sage-500 flex items-center justify-center text-xs font-bold text-white shadow-lg">1</div>
+                        <h3 class="font-serif text-2xl text-white">Select Box Size</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button id="btn-size-4" onclick="setBoxSize(4)" class="relative p-6 rounded-md border-2 border-sage-500 bg-sage-500/20 text-left transition-all duration-300 group overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-sage-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <i class="fa-solid fa-check-circle absolute top-4 right-4 text-sage-400 text-xl size-check transition-all"></i>
+                            <span class="block font-serif text-2xl text-white mb-1 relative z-10">4 Pieces</span>
+                            <span class="text-xs text-cream-100/60 relative z-10">The perfect tasting set</span>
+                        </button>
+                        <button id="btn-size-6" onclick="setBoxSize(6)" class="relative p-6 rounded-md border-2 border-white/10 hover:border-sage-500/50 bg-white/5 text-left transition-all duration-300 group overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <i class="fa-solid fa-check-circle absolute top-4 right-4 text-sage-400 text-xl size-check opacity-0 scale-50 transition-all"></i>
+                            <span class="block font-serif text-2xl text-white mb-1 relative z-10">6 Pieces</span>
+                            <span class="text-xs text-cream-100/60 relative z-10">Ideal for sharing</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Choose Fillings -->
+                <div class="xl:col-span-7 order-2 xl:order-2 glass bg-white/5 p-8 rounded-md border border-white/10 reveal-on-scroll">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-8 h-8 rounded bg-sage-500 flex items-center justify-center text-xs font-bold text-white shadow-lg">2</div>
+                            <h3 class="font-serif text-2xl text-white">Choose Fillings</h3>
                         </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <button id="btn-size-4" onclick="setBoxSize(4)" class="relative p-6 rounded-md border-2 border-sage-500 bg-sage-500/20 text-left transition-all duration-300 group overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-sage-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <i class="fa-solid fa-check-circle absolute top-4 right-4 text-sage-400 text-xl size-check transition-all"></i>
-                                <span class="block font-serif text-2xl text-white mb-1 relative z-10">4 Pieces</span>
-                                <span class="text-xs text-cream-100/60 relative z-10">The perfect tasting set</span>
-                            </button>
-                            <button id="btn-size-6" onclick="setBoxSize(6)" class="relative p-6 rounded-md border-2 border-white/10 hover:border-sage-500/50 bg-white/5 text-left transition-all duration-300 group overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <i class="fa-solid fa-check-circle absolute top-4 right-4 text-sage-400 text-xl size-check opacity-0 scale-50 transition-all"></i>
-                                <span class="block font-serif text-2xl text-white mb-1 relative z-10">6 Pieces</span>
-                                <span class="text-xs text-cream-100/60 relative z-10">Ideal for sharing</span>
-                            </button>
+                        <div class="bg-sage-500/20 text-sage-300 px-4 py-1.5 rounded text-xs font-medium tracking-wide border border-sage-500/30" id="slots-remaining-badge">
+                            4 slots left
                         </div>
                     </div>
 
-                    <!-- Step 2 -->
-                    <div class="glass bg-white/5 p-8 rounded-md border border-white/10">
-                        <div class="flex items-center justify-between mb-6">
-                            <div class="flex items-center gap-4">
-                                <div class="w-8 h-8 rounded bg-sage-500 flex items-center justify-center text-xs font-bold text-white shadow-lg">2</div>
-                                <h3 class="font-serif text-2xl text-white">Choose Fillings</h3>
-                            </div>
-                            <div class="bg-sage-500/20 text-sage-300 px-4 py-1.5 rounded text-xs font-medium tracking-wide border border-sage-500/30" id="slots-remaining-badge">
-                                4 slots left
+                    <div class="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-1 gap-4">
+                        <!-- Flavor Option -->
+                        <div class="flavor-option group flex flex-col justify-between p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-sage-500/50 transition-all duration-300 cursor-pointer" onclick="addFlavor('Matcha Mochi', 120, 'images/mochi_selection.png')">
+                            <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-3 w-full">
+                                <div class="flex flex-col xl:flex-row items-center gap-3">
+                                    <div class="w-14 h-14 rounded-full overflow-hidden shadow-inner border border-white/10 shrink-0 bg-green-900/30">
+                                        <img src="images/mochi_selection.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Matcha">
+                                    </div>
+                                    <div class="text-center xl:text-left">
+                                        <h4 class="font-serif text-base text-white font-medium">Uji Matcha Mochi</h4>
+                                        <p class="text-[10px] text-cream-100/50 font-light mt-0.5">Earthy premium green tea</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between xl:justify-end gap-3 mt-2 xl:mt-0 pt-2 xl:pt-0 border-t xl:border-t-0 border-white/5 w-full xl:w-auto">
+                                    <span class="text-xs xl:text-sm font-medium text-sage-300">₹120</span>
+                                    <div class="w-6 h-6 xl:w-8 xl:h-8 rounded bg-white/10 text-white flex items-center justify-center group-hover:bg-sage-500 transition-colors">
+                                        <i class="fa-solid fa-plus text-xs"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="space-y-3">
-                            <!-- Flavor Option -->
-                            <div class="flavor-option group flex items-center justify-between p-4 rounded border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer" onclick="addFlavor('Matcha Mochi', 120, 'images/mochi_selection.png')">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 rounded-sm bg-green-900/30 overflow-hidden shadow-inner border border-white/10 shrink-0">
-                                        <img src="images/mochi_selection.png" class="w-full h-full object-cover opacity-80" alt="Matcha">
+                        <!-- Flavor Option -->
+                        <div class="flavor-option group flex flex-col justify-between p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-sage-500/50 transition-all duration-300 cursor-pointer" onclick="addFlavor('Caramel Mochi', 130, 'images/salted_caramel_mochi.png')">
+                            <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-3 w-full">
+                                <div class="flex flex-col xl:flex-row items-center gap-3">
+                                    <div class="w-14 h-14 rounded-full overflow-hidden shadow-inner border border-white/10 shrink-0 bg-amber-900/30">
+                                        <img src="images/salted_caramel_mochi.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Caramel">
                                     </div>
-                                    <div>
-                                        <h4 class="font-serif text-lg text-white">Uji Matcha Mochi</h4>
-                                        <p class="text-xs text-cream-100/50 font-light">Earthy premium green tea</p>
-                                    </div>
-                                </div>
-                                <div class="flex items-center gap-4">
-                                    <span class="text-sm font-medium text-sage-300">₹120</span>
-                                    <button class="w-8 h-8 rounded bg-white/10 text-white flex items-center justify-center group-hover:bg-sage-500 transition-colors">
-                                        <i class="fa-solid fa-plus text-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Flavor Option -->
-                            <div class="flavor-option group flex items-center justify-between p-4 rounded border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer" onclick="addFlavor('Caramel Mochi', 130, 'images/salted_caramel_mochi.png')">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 rounded-sm bg-amber-900/30 overflow-hidden shadow-inner border border-white/10 shrink-0">
-                                        <img src="images/salted_caramel_mochi.png" class="w-full h-full object-cover opacity-80" alt="Caramel">
-                                    </div>
-                                    <div>
-                                        <h4 class="font-serif text-lg text-white">Salted Caramel Mochi</h4>
-                                        <p class="text-xs text-cream-100/50 font-light">Rich, buttery with toasted pecans</p>
+                                    <div class="text-center xl:text-left">
+                                        <h4 class="font-serif text-base text-white font-medium">Salted Caramel Mochi</h4>
+                                        <p class="text-[10px] text-cream-100/50 font-light mt-0.5">Rich, buttery with toasted pecans</p>
                                     </div>
                                 </div>
-                                <div class="flex items-center gap-4">
-                                    <span class="text-sm font-medium text-sage-300">₹130</span>
-                                    <button class="w-8 h-8 rounded bg-white/10 text-white flex items-center justify-center group-hover:bg-sage-500 transition-colors">
-                                        <i class="fa-solid fa-plus text-sm"></i>
-                                    </button>
+                                <div class="flex items-center justify-between xl:justify-end gap-3 mt-2 xl:mt-0 pt-2 xl:pt-0 border-t xl:border-t-0 border-white/5 w-full xl:w-auto">
+                                    <span class="text-xs xl:text-sm font-medium text-sage-300">₹130</span>
+                                    <div class="w-6 h-6 xl:w-8 xl:h-8 rounded bg-white/10 text-white flex items-center justify-center group-hover:bg-sage-500 transition-colors">
+                                        <i class="fa-solid fa-plus text-xs"></i>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Flavor Option -->
-                            <div class="flavor-option group flex items-center justify-between p-4 rounded border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer" onclick="addFlavor('Rose Mochi', 120, 'images/mochi_selection.png')">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 rounded-sm bg-rose-900/30 overflow-hidden shadow-inner border border-white/10 shrink-0">
-                                        <img src="images/mochi_selection.png" class="w-full h-full object-cover opacity-80 filter hue-rotate-[290deg]" alt="Rose">
+                        <!-- Flavor Option -->
+                        <div class="flavor-option group flex flex-col justify-between p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-sage-500/50 transition-all duration-300 cursor-pointer" onclick="addFlavor('Rose Mochi', 120, 'images/mochi_selection.png')">
+                            <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-3 w-full">
+                                <div class="flex flex-col xl:flex-row items-center gap-3">
+                                    <div class="w-14 h-14 rounded-full overflow-hidden shadow-inner border border-white/10 shrink-0 bg-rose-900/30">
+                                        <img src="images/mochi_selection.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 filter hue-rotate-[290deg]" alt="Rose">
                                     </div>
-                                    <div>
-                                        <h4 class="font-serif text-lg text-white">Rose-Cardamom Mochi</h4>
-                                        <p class="text-xs text-cream-100/50 font-light">Delicate spiced floral fusion</p>
+                                    <div class="text-center xl:text-left">
+                                        <h4 class="font-serif text-base text-white font-medium">Rose-Cardamom Mochi</h4>
+                                        <p class="text-[10px] text-cream-100/50 font-light mt-0.5">Delicate spiced floral fusion</p>
                                     </div>
                                 </div>
-                                <div class="flex items-center gap-4">
-                                    <span class="text-sm font-medium text-sage-300">₹120</span>
-                                    <button class="w-8 h-8 rounded bg-white/10 text-white flex items-center justify-center group-hover:bg-sage-500 transition-colors">
-                                        <i class="fa-solid fa-plus text-sm"></i>
-                                    </button>
+                                <div class="flex items-center justify-between xl:justify-end gap-3 mt-2 xl:mt-0 pt-2 xl:pt-0 border-t xl:border-t-0 border-white/5 w-full xl:w-auto">
+                                    <span class="text-xs xl:text-sm font-medium text-sage-300">₹120</span>
+                                    <div class="w-6 h-6 xl:w-8 xl:h-8 rounded bg-white/10 text-white flex items-center justify-center group-hover:bg-sage-500 transition-colors">
+                                        <i class="fa-solid fa-plus text-xs"></i>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Flavor Option -->
-                            <div class="flavor-option group flex items-center justify-between p-4 rounded border border-white/10 bg-white/5 hover:bg-white/10 cursor-pointer" onclick="addFlavor('Vanilla Choux', 140, 'images/choux_pastry.png')">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 rounded-sm bg-amber-900/30 overflow-hidden shadow-inner border border-white/10 shrink-0">
-                                        <img src="images/choux_pastry.png" class="w-full h-full object-cover opacity-80" alt="Choux">
+                        <!-- Flavor Option -->
+                        <div class="flavor-option group flex flex-col justify-between p-4 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 hover:border-sage-500/50 transition-all duration-300 cursor-pointer" onclick="addFlavor('Vanilla Choux', 140, 'images/choux_pastry.png')">
+                            <div class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-3 w-full">
+                                <div class="flex flex-col xl:flex-row items-center gap-3">
+                                    <div class="w-14 h-14 rounded-full overflow-hidden shadow-inner border border-white/10 shrink-0 bg-amber-900/30">
+                                        <img src="images/choux_pastry.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Choux">
                                     </div>
-                                    <div>
-                                        <h4 class="font-serif text-lg text-white">Classic Vanilla Choux</h4>
-                                        <p class="text-xs text-cream-100/50 font-light">Crisp pastry puff with diplomat cream</p>
+                                    <div class="text-center xl:text-left">
+                                        <h4 class="font-serif text-base text-white font-medium">Classic Vanilla Choux</h4>
+                                        <p class="text-[10px] text-cream-100/50 font-light mt-0.5">Crisp pastry puff with diplomat cream</p>
                                     </div>
                                 </div>
-                                <div class="flex items-center gap-4">
-                                    <span class="text-sm font-medium text-sage-300">₹140</span>
-                                    <button class="w-8 h-8 rounded bg-white/10 text-white flex items-center justify-center group-hover:bg-sage-500 transition-colors">
-                                        <i class="fa-solid fa-plus text-sm"></i>
-                                    </button>
+                                <div class="flex items-center justify-between xl:justify-end gap-3 mt-2 xl:mt-0 pt-2 xl:pt-0 border-t xl:border-t-0 border-white/5 w-full xl:w-auto">
+                                    <span class="text-xs xl:text-sm font-medium text-sage-300">₹140</span>
+                                    <div class="w-6 h-6 xl:w-8 xl:h-8 rounded bg-white/10 text-white flex items-center justify-center group-hover:bg-sage-500 transition-colors">
+                                        <i class="fa-solid fa-plus text-xs"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -582,8 +587,8 @@
                 </div>
 
                 <!-- Right: Visualizer & Checkout -->
-                <div class="xl:col-span-5 reveal-on-scroll order-first xl:order-last">
-                    <div class="xl:sticky top-28 glass bg-white/10 p-6 md:p-8 rounded-md border border-white/20 shadow-2xl backdrop-blur-xl">
+                <div class="xl:col-span-5 xl:col-start-8 xl:row-start-1 order-3 xl:order-3 xl:row-span-2 xl:sticky xl:top-28 reveal-on-scroll">
+                    <div class="glass bg-white/10 p-6 md:p-8 rounded-md border border-white/20 shadow-2xl backdrop-blur-xl">
                         
                         <div class="text-center mb-8">
                             <h3 class="font-serif text-3xl text-white mb-2" id="visualizer-title">Your 4-Piece Box</h3>
@@ -622,122 +627,127 @@
 
     <!-- Social / Instagram Reels Section -->
     <section id="reels" class="py-16 md:py-32 bg-cream-50 relative overflow-hidden border-t border-sage-200/20">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-            <div class="flex flex-col items-center text-center space-y-4 mb-10 md:mb-20 reveal-on-scroll">
-                <span class="text-xs uppercase tracking-[0.2em] text-sage-600 font-bold inline-flex items-center gap-2"><i class="fab fa-instagram"></i> Instagram Presence</span>
-                <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-charcoal-900">Loved by Food Vloggers</h2>
-                <div class="h-px w-24 bg-sage-300 mt-4 md:mt-6"></div>
-            </div>
-
-            <!-- Desktop: 3-column grid | Mobile: horizontal scroll strip -->
-            <div class="hidden md:grid md:grid-cols-3 gap-8 reveal-on-scroll">
-                <!-- Reel Card 1 -->
-                <div class="bg-white rounded-md p-4 shadow-md border border-cream-200 flex flex-col items-center group transition-all duration-300 hover:shadow-xl">
-                    <div class="w-full aspect-[9/16] bg-cream-300 rounded-sm overflow-hidden relative flex items-center justify-center mb-4">
-                        <img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/35 transition-colors">
-                            <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 transform group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-play text-xl ml-1"></i>
-                            </div>
-                        </div>
-                        <p class="absolute bottom-4 left-4 z-10 text-white font-medium drop-shadow-md text-xs bg-black/40 px-3 py-1 rounded-sm">@vlogger1</p>
-                    </div>
-                    <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="text-xs font-bold uppercase tracking-widest text-sage-600 hover:text-sage-700 transition-colors flex items-center gap-2 mt-2">
-                        Watch Reel <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
+        <div class="max-w-7xl mx-auto px-8 md:px-12 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 reveal-on-scroll">
+                <div class="text-left space-y-4">
+                    <span class="text-xs uppercase tracking-[0.2em] text-sage-600 font-bold inline-flex items-center gap-2"><i class="fab fa-instagram"></i> Instagram Presence</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-charcoal-900">Loved by Food Vloggers</h2>
                 </div>
-                <!-- Reel Card 2 -->
-                <div class="bg-white rounded-md p-4 shadow-md border border-cream-200 flex flex-col items-center group transition-all duration-300 hover:shadow-xl">
-                    <div class="w-full aspect-[9/16] bg-cream-300 rounded-sm overflow-hidden relative flex items-center justify-center mb-4">
-                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/35 transition-colors">
-                            <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 transform group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-play text-xl ml-1"></i>
-                            </div>
-                        </div>
-                        <p class="absolute bottom-4 left-4 z-10 text-white font-medium drop-shadow-md text-xs bg-black/40 px-3 py-1 rounded-sm">@kochieats</p>
-                    </div>
-                    <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="text-xs font-bold uppercase tracking-widest text-sage-600 hover:text-sage-700 transition-colors flex items-center gap-2 mt-2">
-                        Watch Reel <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-                <!-- Reel Card 3 -->
-                <div class="bg-white rounded-md p-4 shadow-md border border-cream-200 flex flex-col items-center group transition-all duration-300 hover:shadow-xl">
-                    <div class="w-full aspect-[9/16] bg-cream-300 rounded-sm overflow-hidden relative flex items-center justify-center mb-4">
-                        <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel thumbnail" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center group-hover:bg-black/35 transition-colors">
-                            <div class="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 transform group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-play text-xl ml-1"></i>
-                            </div>
-                        </div>
-                        <p class="absolute bottom-4 left-4 z-10 text-white font-medium drop-shadow-md text-xs bg-black/40 px-3 py-1 rounded-sm">@foodiekochi</p>
-                    </div>
-                    <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="text-xs font-bold uppercase tracking-widest text-sage-600 hover:text-sage-700 transition-colors flex items-center gap-2 mt-2">
-                        Watch Reel <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
+                <!-- Navigation Arrows -->
+                <div class="flex items-center gap-3 mt-6 md:mt-0">
+                    <button id="prev-reel" class="w-10 h-10 rounded-full border border-charcoal-900/10 hover:border-sage-500 hover:bg-sage-500 hover:text-white transition-all flex items-center justify-center text-charcoal-800 focus:outline-none">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <button id="next-reel" class="w-10 h-10 rounded-full border border-charcoal-900/10 hover:border-sage-500 hover:bg-sage-500 hover:text-white transition-all flex items-center justify-center text-charcoal-800 focus:outline-none">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
 
-            <!-- Mobile: Horizontal scroll strip with landscape cards -->
-            <div class="md:hidden flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-6 px-6 reveal-on-scroll scrollbar-hide">
-                <!-- Mobile Reel 1 -->
-                <div class="bg-white rounded-md shadow-md border border-cream-200 flex-shrink-0 w-[72vw] group snap-start overflow-hidden">
-                    <div class="w-full h-48 bg-cream-300 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel" class="w-full h-full object-cover opacity-80">
-                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-                            <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30">
-                                <i class="fa-solid fa-play text-base ml-0.5"></i>
-                            </div>
+            <!-- Immersive Reels Carousel -->
+            <div id="reels-carousel" class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scroll-smooth scrollbar-hide reveal-on-scroll">
+                <!-- Reel 1 -->
+                <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="relative aspect-[9/16] w-[70vw] sm:w-[45vw] md:w-[30%] lg:w-[23%] shrink-0 snap-start rounded-2xl overflow-hidden shadow-lg group border border-white/20 bg-charcoal-900 active:scale-95 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel 1" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play text-sm ml-0.5"></i>
                         </div>
-                        <p class="absolute bottom-3 left-3 text-white text-xs bg-black/40 px-2 py-0.5 rounded-sm">@vlogger1</p>
                     </div>
-                    <div class="p-3">
-                        <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="text-xs font-bold uppercase tracking-widest text-sage-600 flex items-center gap-2">
-                            Watch Reel <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                        </a>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                        <p class="text-xs text-white/90 font-medium tracking-wide">@vlogger1</p>
                     </div>
-                </div>
-                <!-- Mobile Reel 2 -->
-                <div class="bg-white rounded-md shadow-md border border-cream-200 flex-shrink-0 w-[72vw] group snap-start overflow-hidden">
-                    <div class="w-full h-48 bg-cream-300 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel" class="w-full h-full object-cover opacity-80">
-                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-                            <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30">
-                                <i class="fa-solid fa-play text-base ml-0.5"></i>
-                            </div>
+                    <div class="absolute top-4 right-4 text-white/80 text-sm">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+
+                <!-- Reel 2 -->
+                <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="relative aspect-[9/16] w-[70vw] sm:w-[45vw] md:w-[30%] lg:w-[23%] shrink-0 snap-start rounded-2xl overflow-hidden shadow-lg group border border-white/20 bg-charcoal-900 active:scale-95 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel 2" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play text-sm ml-0.5"></i>
                         </div>
-                        <p class="absolute bottom-3 left-3 text-white text-xs bg-black/40 px-2 py-0.5 rounded-sm">@kochieats</p>
                     </div>
-                    <div class="p-3">
-                        <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="text-xs font-bold uppercase tracking-widest text-sage-600 flex items-center gap-2">
-                            Watch Reel <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                        </a>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                        <p class="text-xs text-white/90 font-medium tracking-wide">@kochieats</p>
                     </div>
-                </div>
-                <!-- Mobile Reel 3 -->
-                <div class="bg-white rounded-md shadow-md border border-cream-200 flex-shrink-0 w-[72vw] group snap-start overflow-hidden">
-                    <div class="w-full h-48 bg-cream-300 relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel" class="w-full h-full object-cover opacity-80">
-                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
-                            <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30">
-                                <i class="fa-solid fa-play text-base ml-0.5"></i>
-                            </div>
+                    <div class="absolute top-4 right-4 text-white/80 text-sm">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+
+                <!-- Reel 3 -->
+                <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="relative aspect-[9/16] w-[70vw] sm:w-[45vw] md:w-[30%] lg:w-[23%] shrink-0 snap-start rounded-2xl overflow-hidden shadow-lg group border border-white/20 bg-charcoal-900 active:scale-95 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel 3" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play text-sm ml-0.5"></i>
                         </div>
-                        <p class="absolute bottom-3 left-3 text-white text-xs bg-black/40 px-2 py-0.5 rounded-sm">@foodiekochi</p>
                     </div>
-                    <div class="p-3">
-                        <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="text-xs font-bold uppercase tracking-widest text-sage-600 flex items-center gap-2">
-                            Watch Reel <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                        </a>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                        <p class="text-xs text-white/90 font-medium tracking-wide">@foodiekochi</p>
                     </div>
-                </div>
+                    <div class="absolute top-4 right-4 text-white/80 text-sm">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+
+                <!-- Reel 4 -->
+                <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="relative aspect-[9/16] w-[70vw] sm:w-[45vw] md:w-[30%] lg:w-[23%] shrink-0 snap-start rounded-2xl overflow-hidden shadow-lg group border border-white/20 bg-charcoal-900 active:scale-95 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel 4" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                        <p class="text-xs text-white/90 font-medium tracking-wide">@keralafoodie</p>
+                    </div>
+                    <div class="absolute top-4 right-4 text-white/80 text-sm">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+
+                <!-- Reel 5 -->
+                <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="relative aspect-[9/16] w-[70vw] sm:w-[45vw] md:w-[30%] lg:w-[23%] shrink-0 snap-start rounded-2xl overflow-hidden shadow-lg group border border-white/20 bg-charcoal-900 active:scale-95 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel 5" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                        <p class="text-xs text-white/90 font-medium tracking-wide">@kochifoodbites</p>
+                    </div>
+                    <div class="absolute top-4 right-4 text-white/80 text-sm">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
+
+                <!-- Reel 6 -->
+                <a href="https://www.instagram.com/patisserie.sol.kochi/?hl=en" target="_blank" class="relative aspect-[9/16] w-[70vw] sm:w-[45vw] md:w-[30%] lg:w-[23%] shrink-0 snap-start rounded-2xl overflow-hidden shadow-lg group border border-white/20 bg-charcoal-900 active:scale-95 transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Reel 6" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                        <div class="w-12 h-12 rounded-full bg-white/25 backdrop-blur-md flex items-center justify-center text-white border border-white/30 shadow-lg group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-play text-sm ml-0.5"></i>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+                        <p class="text-xs text-white/90 font-medium tracking-wide">@sol.lovers</p>
+                    </div>
+                    <div class="absolute top-4 right-4 text-white/80 text-sm">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-charcoal-900 text-cream-100 py-12 md:py-16 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="max-w-7xl mx-auto px-8 md:px-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-center text-center">
             
                 <div class="space-y-3 md:text-left">
@@ -803,25 +813,27 @@
         // -- Mobile Menu --
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
         let isMenuOpen = false;
 
         function toggleMenu() {
             isMenuOpen = !isMenuOpen;
             if (isMenuOpen) {
-                mobileMenu.classList.remove('translate-x-full');
-                mobileMenuBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto', 'scale-100');
                 document.getElementById('bar1').classList.add('translate-y-[2.5px]', 'rotate-45');
                 document.getElementById('bar2').classList.add('-translate-y-[2.5px]', '-rotate-45');
             } else {
-                mobileMenu.classList.add('translate-x-full');
-                mobileMenuBackdrop.classList.add('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none', 'scale-95');
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto', 'scale-100');
                 document.getElementById('bar1').classList.remove('translate-y-[2.5px]', 'rotate-45');
                 document.getElementById('bar2').classList.remove('-translate-y-[2.5px]', '-rotate-45');
             }
         }
         mobileMenuBtn.addEventListener('click', toggleMenu);
-        mobileMenuBackdrop.addEventListener('click', toggleMenu);
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) toggleMenu();
+        });
         document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => { if(isMenuOpen) toggleMenu(); }));
 
         // -- Interactive Box Builder Logic --
@@ -941,6 +953,20 @@
 
         // Initialize
         renderBox();
+
+        // -- Reels Carousel Navigation --
+        const carousel = document.getElementById('reels-carousel');
+        const prevBtn = document.getElementById('prev-reel');
+        const nextBtn = document.getElementById('next-reel');
+        
+        if (carousel && prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: -carousel.offsetWidth * 0.75, behavior: 'smooth' });
+            });
+            nextBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: carousel.offsetWidth * 0.75, behavior: 'smooth' });
+            });
+        }
     </script>
 </body>
 </html>
